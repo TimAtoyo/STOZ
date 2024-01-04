@@ -253,45 +253,80 @@ countryToCurrency = {
   };
 //   
 var countryCodEl = document.querySelector('.country-option');
-
 // Testing api to see the results
 
 var url = `https://www.travel-advisory.info/api`;
 
 fetch(url)
   .then((response) => response.json())
-  .then((data) => {
-
-
-    var exchangeURL = `https://v6.exchangerate-api.com/v6/bd30a0f67f97361ae2f2083c/latest/USD`
-    fetch(exchangeURL)
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-  })
-//   console.log(data.data);
-    
+  .then((data) => {    
     // Results object
     var results = data.data;
 
-    // Loop to create options and append to html
+    // Calling function to append country options and process map country to currency 
+    displayCountryInfo(results);
+  });
 
+  var exchangeURL = `https://v6.exchangerate-api.com/v6/bd30a0f67f97361ae2f2083c/latest/USD`
+  fetch(exchangeURL)
+.then((response) => response.json())
+.then((currencyData) => {
+  var currencyObject = currencyData.conversion_rates
+  mapCountryToCurrency(currencyObject)
+})
+
+
+  function displayCountryInfo(results){
     for (const key in results) {
         if (Object.hasOwnProperty.call(results, key)) {
             
             const value = results[key];
+            
             var countryName = value.name;
              // iso value
-             var countryCode = value.so_alpha2;
-             // console.log(countryName);
-
+             var countryCode = value.iso_alpha2;
+            //  console.log(countryName);
 
              // Creatong option element
              var optionEl = document.createElement('option');
              optionEl.textContent = countryName;
              optionEl.setAttribute('value', countryCode);
+             
              // Append the options to the element on html Document
              countryCodEl.append(optionEl);
+
+            //  
         }
     }
-  });
+
+    var selectedvalue = countryCodEl.value;
+    for (const country in countryToCurrency) {
+        if (Object.hasOwnProperty.call(countryToCurrency, country)) {
+            const selectedCountry = countryToCurrency[country];
+            if (selectedvalue === country) {
+                console.log(`this is the one im looking for ${selectedCountry}`);
+                return selectedCountry;
+            }  
+        }
+    }
+}
+
+function mapCountryToCurrency(currencyoObject, selectedCountry){
+    for (const key in currencyoObject) {
+        if (Object.hasOwnProperty.call(currencyoObject, key)) {
+            const element = currencyoObject[key];
+            console.log(element);
+            console.log(`this is the passed in country ${selectedCountry}`);
+            
+        }
+    }
+}
+  countryCodEl.addEventListener("change", function(e, results, selectedCountry){
+    // console.log(e.target)
+    displayCountryInfo(results)
+    mapCountryToCurrency(currencyoObject, selectedCountry)
+
+
+    
+  })
+  
