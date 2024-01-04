@@ -1,7 +1,18 @@
-.search-area {
-    padding-top: 250px;
+header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(201, 228, 236);
 }
-.header {
+.container-fluid {
+    background-color: #293243;
+    padding: 0px;
+}
+.navbar-brand {
+    width: 100px;
+    height: auto;
+}
+.search-area {
     padding-top: 50px;
-    background-color: burlywood;
+    background-color: #293243;
+    box-sizing: border-box;
 }
