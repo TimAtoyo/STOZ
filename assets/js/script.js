@@ -19,25 +19,18 @@ fetch(url)
         if (Object.hasOwnProperty.call(results, key)) {
             
             const value = results[key];
-            
-            for (const key in value) {
-                if (Object.hasOwnProperty.call(value, key)) {
-                    const countryName = value.name;
-                    // iso value
-                    var countryCode = value.so_alpha2;
-                    console.log(countryName);
+            var countryName = value.name;
+             // iso value
+             var countryCode = value.so_alpha2;
+             // console.log(countryName);
 
 
-                    // Creatong option element
-                    var optionEl = document.createElement('option');
-                    optionEl.textContent = countryName;
-                    optionEl.setAttribute('value', countryCode);
-                    // Append the options to the element on html Document
-                    countryCodEl.append(optionEl)
-
-                    
-                }
-            }
+             // Creatong option element
+             var optionEl = document.createElement('option');
+             optionEl.textContent = countryName;
+             optionEl.setAttribute('value', countryCode);
+             // Append the options to the element on html Document
+             countryCodEl.append(optionEl);
         }
     }
   });
