@@ -265,9 +265,9 @@ fetch(url)
   .then((data) => {
     // Results object
     var results = data.data;
-
+    console.log(results);
     // Calling function to append country options and process map country to currency
-    console.log(displayCountryInfo(results));
+    // console.log(displayCountryInfo(results));
   });
 
 
@@ -291,7 +291,7 @@ fetch(url)
     }
 }
 var userCurrencyInput = fromCurrency.value;
-console.log(`usser input ${userCurrencyInput}`);
+// console.log(`usser input ${userCurrencyInput}`);
 
 
 // Exchange API Call
@@ -330,7 +330,7 @@ var displayCountryInfo = function (results) {
     if (Object.hasOwnProperty.call(countryToCurrency, country)) {
       const selectedCountry = countryToCurrency[country];
       if (selectedvalue === country) {
-        console.log(`this is the one im looking for ${selectedCountry}`);
+        // console.log(`this is the one im looking for ${selectedCountry}`);
         return selectedCountry;
       }
     }
@@ -349,7 +349,7 @@ function mapCountryToCurrency(currencyoObject) {
         // var currencyFromSelectElement = document.crea 
     }
   }
-  console.log(`this is the passed in country ${selectedCountry}`);
+//   console.log(`this is the passed in country ${selectedCountry}`);
 }
 
 countryCodEl.addEventListener(
