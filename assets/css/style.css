@@ -17,6 +17,15 @@ header {
     box-sizing: border-box;
 }
 
+.currency-section {
+    padding-top: 50px;
+    background-color: #61a0ff;
+    box-sizing: border-box;
+}
+
+
+
+
 .carousel-item {
     height: 150px;
   }
