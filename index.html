@@ -1,158 +1,221 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  </head>
-  <body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
     <header>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <img class="navbar-brand" src="./assets/images/WANDER GUARD LOGO.png">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ">
-              <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
-              <a class="nav-link text-white" href="#">Travel Advisory</a>
-              <a class="nav-link text-white" href="#">Currrency Converter</a>
-              
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <img class="navbar-brand" src="./assets/images/WANDER GUARD LOGO.png">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ">
+                        <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                        <a class="nav-link text-white" href="#">Travel Advisory</a>
+                        <a class="nav-link text-white" href="#">Currrency Converter</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </nav>
+        </nav>
     </header>
+    <!-- ==================== -->
     <section>
-    <div id="carouselExampleCaptions" class="carousel slide">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="https://via.placeholder.com/200x110" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </div>
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://via.placeholder.com/200x110" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://via.placeholder.com/200x110" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://via.placeholder.com/200x110" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <div class="carousel-item">
-          <img src="https://via.placeholder.com/200x110" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="https://via.placeholder.com/200x110" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </section>  
-   
+    </section>
+    <!-- ==================== -->
     <!-- Travel Advisory Section -->
-     <section class="travel-area">
-      <h2 class="text-white  text-center travel-text"> Travel Advisory </h2>
+    <section class="travel-area">
+        <h2 class="text-white text-center travel-text"> Travel Advisory </h2>
         <div class="container">
             <div class="row">
-              <!--search area  -->
+                <!--search area  -->
+                <div class="col-md-4 mb-3">
+                    <select class="form-select country-option" aria-label="Default select example">
+                        <option selected value="default">Select a country</option>
+
+                    </select>
+                    <button class="btn btn-info search-button">Search</button> <!-- Search button -->
+                </div>
+                <!-- Travel advisory widget -->
+                <div class="col-md-8 d-flex justify-content-end">
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title country-name">UK</h5>
+                                        </div>
+                                    </div>
+                                    <p class="card-text risk-level">This is a wider card with supporting text below as a
+                                        natural lead-in to
+                                        additional content. This content is a little bit longer.</p>
+                                    <p class="card-text link-to-more-info">www.google.com</p>
+                                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
+                                            ago</small></p>
+                                </div>
+                            </div>
+                            <div class="col-4 d-flex align-items-center justify-content-center">
+                                <div class="score">
+                                    <p>Score</p>
+                                    <h1 style="font-size: 5rem;">3/5</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="travel-area">
+        <h2 class="text-white  text-center travel-text"> Travel Advisory </h2>
+        <div class="container">
+            <div class="row">
+               
                 <div class="col-4 mb-3">
                     <select class="form-select country-option" aria-label="Default select example">
                         <option selected value="default">Select a country</option>
-                        
+
                     </select>
-                    <button class = "btn btn-info search-button">Search</button> <!-- Search button -->
+                    <button class="btn btn-info search-button">Search</button> 
                 </div>
-              <!-- Travel advisory widget -->
-              <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                  
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+              
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Currency Converter Area -->
-    <section class = " currency-section">
-      <div class="container h-100">
-    
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="box bg-light w-25 p-5 border border-2 rounded mt-5">
-            <h1 class="mb-4">Currency converter</h1> 
-             
-             <div class="inputs">
-                 <div class="input-group mb-3">
-           <label class="input-group-text">Amount</label>
-                     <input type="text" id="amount" class="form-control" aria-label="Amount" placeholder="1500">
-         
-         </div>
-                         <div class="input-group mb-3">
-           <label class="input-group-text" for="inputGroupSelect01">From</label>
-           <select class="form-select fromCurrency" id="inputGroupSelect01">
+    </section> -->
 
-           </select>
-         </div>
-                                 <div class="input-group mb-3">
-           <label class="input-group-text" for="inputGroupSelect02">To</label>
-           <select class="form-select toCurrency" id="inputGroupSelect02">
-           </select>
-         </div>
-               <div class="input-group mb-3">
-           <button class="btn btn-outline-success text-light bg-success" type="button" id="button-addon1" onclick="convert()">Convert</button>
-           <input type="text" class="form-control" placeholder="" aria-label="Convert" id="output" aria-describedby="button-addon1" readonly >
-         </div>
-             </div>
-           </div>
+    <!-- Currency Converter Area -->
+    <section class=" currency-section">
+        <div class="container h-100">
+
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="box bg-light w-25 p-5 border border-2 rounded mt-5">
+                    <h1 class="mb-4">Currency converter</h1>
+
+                    <div class="inputs">
+                        <div class="input-group mb-3">
+                            <label class="input-group-text">Amount</label>
+                            <input type="text" id="amount" class="form-control" aria-label="Amount" placeholder="1500">
+
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="inputGroupSelect01">From</label>
+                            <select class="form-select fromCurrency" id="inputGroupSelect01">
+
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="inputGroupSelect02">To</label>
+                            <select class="form-select toCurrency" id="inputGroupSelect02">
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <button class="btn btn-outline-success text-light bg-success" type="button"
+                                id="button-addon1" onclick="convert()">Convert</button>
+                            <input type="text" class="form-control" placeholder="" aria-label="Convert" id="output"
+                                aria-describedby="button-addon1" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    
-      </div>
     </section>
 
     <footer>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <img class="navbar-brand" src="./assets/images/WANDER GUARD LOGO.png">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ">
-              <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
-              <a class="nav-link text-white" href="#">Travel Advisory</a>
-              <a class="nav-link text-white" href="#">Currrency Converter</a>
-              
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <img class="navbar-brand" src="./assets/images/WANDER GUARD LOGO.png">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ">
+                        <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                        <a class="nav-link text-white" href="#">Travel Advisory</a>
+                        <a class="nav-link text-white" href="#">Currrency Converter</a>
+
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </nav>
+        </nav>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
     <!-- script -->
     <script src="./assets/js/script.js"></script>
-  </body>
+</body>
+
 </html>
