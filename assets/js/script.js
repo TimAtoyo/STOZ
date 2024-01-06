@@ -255,108 +255,190 @@ var countryToCurrency = {
 //
 var fromCurrency = document.querySelector(".fromCurrency");
 var toCurrency = document.querySelector(".toCurrency");
+
+// ountiesToSelectField
 var countryCodEl = document.querySelector(".country-option");
+
+// Advisory card element
+var countryNameEl = document.querySelector(".country-name");
+console.log(countryNameEl);
+var riskLevelEl = document.querySelector(".risk-level");
+var linkToMoreInfoEl = document.querySelector(".link-to-more-info");
+var timeEl = document.querySelector(".time");
+
+
+
 
 // Testing api to see the results
 var url = `https://www.travel-advisory.info/api`;
 
-fetch(url)
-  .then((response) => response.json())
-  .then((data) => {
-    // Results object
-    var results = data.data;
-    console.log(results);
-    // Calling function to append country options and process map country to currency
-    // console.log(displayCountryInfo(results));
-  });
+var fetchPromise = fetch(url).then((response) => response.json());
+fetchPromise.then((data) => {
+    var advisoryResutls = data.data;
+    addCountiesToSelectField(advisoryResutls);
+});
 
+function addCountiesToSelectField(advisoryResutls) {
+    console.log(advisoryResutls);
+    // countesForm Advisory Results
+    for (const country in advisoryResutls) {
+       
+        // Get the country name from fetched object
+        var countryName = advisoryResutls[country].name;
 
-
-  function mapCountryToCurrencyField(){
-    for (const country in countryToCurrency) {
-        if (Object.hasOwnProperty.call(countryToCurrency, country)) {
-            const element = countryToCurrency[country];
-            
-            var currencyfromOptionEl = document.createElement('option');
-            currencyfromOptionEl.innerText = element;
-            currencyfromOptionEl.setAttribute('value', element)
-            fromCurrency.append(currencyfromOptionEl); 
-            
-            var currencyToOptionEl = document.createElement('option');
-            currencyToOptionEl.innerText = element;
-            currencyToOptionEl.setAttribute('value', element)
-            toCurrency.append(currencyToOptionEl); 
-
-        }
+        // Creating Country Option Elenemt
+        var countryElement = document.createElement('option');
+        
+        countryElement.textContent = countryName;
+        
+        //Append Countryelement to the select Element on the DOM
+        countryCodEl.append(countryElement)
     }
 }
-var userCurrencyInput = fromCurrency.value;
-// console.log(`usser input ${userCurrencyInput}`);
 
 
-// Exchange API Call
-var exchangeURL = `https://v6.exchangerate-api.com/v6/bd30a0f67f97361ae2f2083c/latest/${userCurrencyInput}`;
-fetch(exchangeURL)
-  .then((response) => response.json())
-  .then((currencyData) => {
-    var currencyObject = currencyData.conversion_rates;
-    mapCountryToCurrency(currencyObject);
-  });
 
-var displayCountryInfo = function (results) {
-  for (const key in results) {
-    if (Object.hasOwnProperty.call(results, key)) {
-      // Object of each country (advisory)
-      const countryAdvisoryObject = results[key];
+// var response = fetch(url);
+// var jsonResponse = response.then((response) =>
+//   response.json()
+// );
+// var data = jsonResponse.then((data) => {data});
+// console.log(data);
 
-      // Name of country
-      var countryName = countryAdvisoryObject.name;
+//   var results =
+// function logResults(advice){
+//     console.log(advice);
+// }
 
-      // iso Country Code
-      var countryCode = countryAdvisoryObject.iso_alpha2;
+// var displayCountryInfo = function (results) {
+//   for (const key in results) {
+//     if (Object.hasOwnProperty.call(results, key)) {
+//       // Object of each country (advisory)
+//       const countryAdvisoryObject = results[key];
 
-      // Creating Option Element and adding country code and name to element value and text content respectively
-      var optionEl = document.createElement("option");
-      optionEl.textContent = countryName;
-      optionEl.setAttribute("value", countryCode);
+//       // Name of country
+//       var countryName = countryAdvisoryObject.name;
 
-      // Append the options to the element on html Document
-      countryCodEl.append(optionEl);
-    }
-  }
+//       // iso Country Code
+//       var countryCode = countryAdvisoryObject.iso_alpha2;
 
-  var selectedvalue = countryCodEl.value;
-  for (const country in countryToCurrency) {
-    if (Object.hasOwnProperty.call(countryToCurrency, country)) {
-      const selectedCountry = countryToCurrency[country];
-      if (selectedvalue === country) {
-        // console.log(`this is the one im looking for ${selectedCountry}`);
-        return selectedCountry;
-      }
-    }
-  }
-};
+//       //
 
+//       // Creating Option Element and adding country code and name to element value and text content respectively
+//       var optionEl = document.createElement("option");
+//       optionEl.textContent = countryName;
+//       optionEl.setAttribute("value", countryCode);
 
-mapCountryToCurrencyField()
+//       // Append the options to the element on html Document
+//       countryCodEl.append(optionEl);
+//     }
+//   }
 
-function mapCountryToCurrency(currencyoObject) {
-    var selectedCountry = displayCountryInfo();
-  for (const key in currencyoObject) {
-    if (Object.hasOwnProperty.call(currencyoObject, key)) {
-      const element = currencyoObject[key];
-        // console.log(element);
-        // var currencyFromSelectElement = document.crea 
-    }
-  }
-//   console.log(`this is the passed in country ${selectedCountry}`);
-}
+//   var selectedvalue = countryCodEl.value;
+//   for (const country in countryToCurrency) {
+//     if (Object.hasOwnProperty.call(countryToCurrency, country)) {
+//       const selectedCountry = countryToCurrency[country];
+//       if (selectedvalue === country) {
+//         // console.log(`this is the one im looking for ${selectedCountry}`);
+//         return selectedCountry;
+//       }
+//     }
+//   }
+// };
 
-countryCodEl.addEventListener(
-  "change",
-  function (e, results, selectedCountry, currencyoObject) {
-    // console.log(e.target)
-    displayCountryInfo(results);
-    mapCountryToCurrency(currencyoObject, selectedCountry);
-  }
-);
+// function mapCountryToCurrencyField() {
+//   for (const country in countryToCurrency) {
+//     if (Object.hasOwnProperty.call(countryToCurrency, country)) {
+//       const element = countryToCurrency[country];
+
+//       var currencyfromOptionEl = document.createElement("option");
+//       currencyfromOptionEl.innerText = element;
+//       currencyfromOptionEl.setAttribute("value", element);
+//       fromCurrency.append(currencyfromOptionEl);
+
+//       var currencyToOptionEl = document.createElement("option");
+//       currencyToOptionEl.innerText = element;
+//       currencyToOptionEl.setAttribute("value", element);
+//       toCurrency.append(currencyToOptionEl);
+//     }
+//   }
+// }
+// var userCurrencyInput = fromCurrency.value;
+// // console.log(`usser input ${userCurrencyInput}`);
+
+// // // Exchange API Call
+// // var exchangeURL = `https://v6.exchangerate-api.com/v6/bd30a0f67f97361ae2f2083c/latest/${userCurrencyInput}`;
+// // fetch(exchangeURL)
+// //   .then((response) => response.json())
+// //   .then((currencyData) => {
+// //     var currencyObject = currencyData.conversion_rates;
+// //     mapCountryToCurrency(currencyObject);
+// //   });
+
+// mapCountryToCurrencyField();
+
+// function mapCountryToCurrency(currencyoObject) {
+//   var selectedCountry = displayCountryInfo();
+//   for (const key in currencyoObject) {
+//     if (Object.hasOwnProperty.call(currencyoObject, key)) {
+//       const element = currencyoObject[key];
+//       // console.log(element);
+//       // var currencyFromSelectElement = document.crea
+//     }
+//   }
+//   //   console.log(`this is the passed in country ${selectedCountry}`);
+// }
+
+//  function advisoryCardPopulartor(results, countryNameEl) {
+//   for (const key in results) {
+//     if (Object.hasOwnProperty.call(results, key)) {
+//       // Object of each country (advisory)
+//       const countryAdvisoryObject = results[key];
+
+//       // Name of country
+//       var countryName = countryAdvisoryObject.name;
+
+//       var riskLevel = countryAdvisoryObject.name;
+
+//     //   console.log(countryCodEl);
+//     //   console.log(countryNameEl);
+//       // iso Country Code
+//       var countryCode = countryAdvisoryObject.iso_alpha2;
+//       if (countryCodEl.value === countryCode) {
+//         countryNameEl.textContent = "";
+//         countryNameEl.textContent = countryName;
+//         console.log(`Testing`);
+
+//         // riskLevel
+//         // linkToMoreInfo
+//         // time
+//       }
+//     }
+//   }
+// };
+
+// countryCodEl.addEventListener("change", async (e) => {
+//     e.preventDefault()
+//     console.log();
+//    await advisoryCardPopulartor(results, countryNameEl);
+//     //   console.log(e.target);
+// //   displayCountryInfo(results);
+// //   mapCountryToCurrency(currencyoObject, selectedCountry);
+//   });
+
+// //   countryCodEl.addEventListener("change", async (e) => {
+// //     e.preventDefault();
+
+// //     // Fetch data and wait for it to complete
+// //     const response = await fetch(url);
+// //     const data = await response.json();
+
+// //     // Results object
+// //     const results = data.data;
+
+// //     // Call displayCountryInfo to populate the country options
+// //     const selectedCountry = displayCountryInfo(results);
+
+// //     // Call advisoryCardPopulartor with the necessary arguments
+// //     advisoryCardPopulartor(results, countryNameEl);
+// // });
