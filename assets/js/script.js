@@ -257,7 +257,7 @@ var fromCurrency = document.querySelector(".fromCurrency");
 var toCurrency = document.querySelector(".toCurrency");
 
 // ountiesToSelectField
-var countryCodEl = document.querySelector(".country-option");
+var countryOptionElement = document.querySelector(".country-option");
 
 // Advisory card element
 var countryNameEl = document.querySelector(".country-name");
@@ -266,37 +266,70 @@ var riskLevelEl = document.querySelector(".risk-level");
 var linkToMoreInfoEl = document.querySelector(".link-to-more-info");
 var timeEl = document.querySelector(".time");
 
+function fetchData() {
+  // Testing api to see the results
+  var url = `https://www.travel-advisory.info/api`;
 
-
-
-// Testing api to see the results
-var url = `https://www.travel-advisory.info/api`;
-
-var fetchPromise = fetch(url).then((response) => response.json());
-fetchPromise.then((data) => {
+  var fetchPromise = fetch(url).then((response) => response.json());
+  fetchPromise.then((data) => {
     var advisoryResutls = data.data;
     addCountiesToSelectField(advisoryResutls);
-});
-
-function addCountiesToSelectField(advisoryResutls) {
-    console.log(advisoryResutls);
-    // countesForm Advisory Results
-    for (const country in advisoryResutls) {
-       
-        // Get the country name from fetched object
-        var countryName = advisoryResutls[country].name;
-
-        // Creating Country Option Elenemt
-        var countryElement = document.createElement('option');
-        
-        countryElement.textContent = countryName;
-        
-        //Append Countryelement to the select Element on the DOM
-        countryCodEl.append(countryElement)
-    }
+    return data;
+  });
 }
 
+fetchData();
 
+function addCountiesToSelectField(advisoryResutls) {
+  //   console.log(advisoryResutls);
+  // countesForm Advisory Results
+  for (const country in advisoryResutls) {
+    // Get the country name from fetched object
+    var countryName = advisoryResutls[country].name;
+
+    // Get the country Code name from fetched object
+    var countryCode = advisoryResutls[country].iso_alpha2;
+
+    // Creating Country Option Elenemt
+    var countryElement = document.createElement("option");
+    countryElement.setAttribute("value", countryCode);
+
+    countryElement.textContent = countryName;
+
+    //Append Countryelement to the select Element on the DOM
+    countryOptionElement.append(countryElement);
+  }
+}
+
+function displayDataOnAdvisoryCard(advisoryResutls) {
+  // Display Country
+  console.log(`This Function works`);
+  console.log(countryOptionElement.value);
+
+  for (const country in advisoryResutls) {
+      
+    // Get the country name from fetched object
+      var countryName = advisoryResutls[country].name;
+      console.log(countryName);
+      // Get the country Code name from fetched object
+      var countryCode = advisoryResutls[country].iso_alpha2;
+      console.log(countryCode);
+
+    if (countryOptionElement.value === countryCode) {
+      countryNameEl.textContent = "";
+      countryNameEl.textContent = countryName;
+      console.log(`Testing`);
+      // riskLevel
+      // linkToMoreInfo
+      // time
+    }
+  }
+}
+
+countryOptionElement.addEventListener("change", (e, advisoryResutls) => {
+  fetchData();
+  displayDataOnAdvisoryCard(advisoryResutls);
+});
 
 // var response = fetch(url);
 // var jsonResponse = response.then((response) =>
@@ -330,11 +363,11 @@ function addCountiesToSelectField(advisoryResutls) {
 //       optionEl.setAttribute("value", countryCode);
 
 //       // Append the options to the element on html Document
-//       countryCodEl.append(optionEl);
+//       countryOptionElement.append(optionEl);
 //     }
 //   }
 
-//   var selectedvalue = countryCodEl.value;
+//   var selectedvalue = countryOptionElement.value;
 //   for (const country in countryToCurrency) {
 //     if (Object.hasOwnProperty.call(countryToCurrency, country)) {
 //       const selectedCountry = countryToCurrency[country];
@@ -400,11 +433,11 @@ function addCountiesToSelectField(advisoryResutls) {
 
 //       var riskLevel = countryAdvisoryObject.name;
 
-//     //   console.log(countryCodEl);
+//     //   console.log(countryOptionElement);
 //     //   console.log(countryNameEl);
 //       // iso Country Code
 //       var countryCode = countryAdvisoryObject.iso_alpha2;
-//       if (countryCodEl.value === countryCode) {
+//       if (countryOptionElement.value === countryCode) {
 //         countryNameEl.textContent = "";
 //         countryNameEl.textContent = countryName;
 //         console.log(`Testing`);
@@ -417,7 +450,7 @@ function addCountiesToSelectField(advisoryResutls) {
 //   }
 // };
 
-// countryCodEl.addEventListener("change", async (e) => {
+// countryOptionElement.addEventListener("change", async (e) => {
 //     e.preventDefault()
 //     console.log();
 //    await advisoryCardPopulartor(results, countryNameEl);
@@ -426,7 +459,7 @@ function addCountiesToSelectField(advisoryResutls) {
 // //   mapCountryToCurrency(currencyoObject, selectedCountry);
 //   });
 
-// //   countryCodEl.addEventListener("change", async (e) => {
+// //   countryOptionElement.addEventListener("change", async (e) => {
 // //     e.preventDefault();
 
 // //     // Fetch data and wait for it to complete
