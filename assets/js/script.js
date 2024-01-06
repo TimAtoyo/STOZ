@@ -261,10 +261,19 @@ var countryOptionElement = document.querySelector(".country-option");
 
 // Advisory card element
 var countryNameEl = document.querySelector(".country-name");
-console.log(countryNameEl);
+
+// updated Element
+var updated = document.querySelector(".updated");
+
+// Score element
+var advisoryScore = document.querySelector(".advisory-score");
+
+// Risk level element
 var riskLevelEl = document.querySelector(".risk-level");
+
+// link to more onfo element
 var linkToMoreInfoEl = document.querySelector(".link-to-more-info");
-var timeEl = document.querySelector(".time");
+
 
 function fetchData() {
   // Testing api to see the results
@@ -274,7 +283,8 @@ function fetchData() {
   fetchPromise.then((data) => {
     var advisoryResutls = data.data;
     addCountiesToSelectField(advisoryResutls);
-    return data;
+    displayDataOnAdvisoryCard(advisoryResutls);
+    console.log(advisoryResutls);
   });
 }
 
@@ -303,25 +313,46 @@ function addCountiesToSelectField(advisoryResutls) {
 
 function displayDataOnAdvisoryCard(advisoryResutls) {
   // Display Country
-  console.log(`This Function works`);
-  console.log(countryOptionElement.value);
-
   for (const country in advisoryResutls) {
-      
     // Get the country name from fetched object
-      var countryName = advisoryResutls[country].name;
-      console.log(countryName);
-      // Get the country Code name from fetched object
-      var countryCode = advisoryResutls[country].iso_alpha2;
-      console.log(countryCode);
+    var countryName = advisoryResutls[country].name;
+
+    // Get the country risk Level from fetched object
+    var riskLevel = advisoryResutls[country].advisory.message;
+    
+    // Get the country score Level from fetched object
+    var score = advisoryResutls[country].advisory.score;
+  
+    // Get the more info abour country risk Level from fetched object
+    var linkToMoreInfo = advisoryResutls[country].advisory.source;
+
+    // Get the time country risk Level was updated from fetched object
+    var timeUpdated = advisoryResutls[country].advisory.updated;
+
+    // Get the country Code name from fetched object
+    var countryCode = advisoryResutls[country].iso_alpha2;
 
     if (countryOptionElement.value === countryCode) {
+     
+        // Set Rist Level On DOM
       countryNameEl.textContent = "";
       countryNameEl.textContent = countryName;
-      console.log(`Testing`);
-      // riskLevel
-      // linkToMoreInfo
-      // time
+
+      // Set Rist Level On DOM
+      riskLevelEl.textContent = "";
+      riskLevelEl.textContent = riskLevel;
+      
+      // Set link To More Info On DOM
+      linkToMoreInfoEl.setAttribute('href', '') 
+      linkToMoreInfoEl.setAttribute('href', linkToMoreInfo);
+            
+      // Set Rist Level On DOM
+      updated.textContent = "";
+      updated.textContent = timeUpdated;
+  
+      // Set Rist Level On DOM
+      advisoryScore.textContent = "";
+      advisoryScore.textContent = score;
     }
   }
 }
