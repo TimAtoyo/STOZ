@@ -274,6 +274,8 @@ var riskLevelEl = document.querySelector(".risk-level");
 // link to more onfo element
 var linkToMoreInfoEl = document.querySelector(".link-to-more-info");
 
+// Advisory card Element
+var advisoryCardEl = document.querySelector(".card-bg");
 
 function fetchData() {
   // Testing api to see the results
@@ -291,8 +293,7 @@ function fetchData() {
 fetchData();
 
 function addCountiesToSelectField(advisoryResutls) {
-  //   console.log(advisoryResutls);
-  // countesForm Advisory Results
+
   for (const country in advisoryResutls) {
     // Get the country name from fetched object
     var countryName = advisoryResutls[country].name;
@@ -319,10 +320,10 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
 
     // Get the country risk Level from fetched object
     var riskLevel = advisoryResutls[country].advisory.message;
-    
+
     // Get the country score Level from fetched object
     var score = advisoryResutls[country].advisory.score;
-  
+
     // Get the more info abour country risk Level from fetched object
     var linkToMoreInfo = advisoryResutls[country].advisory.source;
 
@@ -333,23 +334,22 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
     var countryCode = advisoryResutls[country].iso_alpha2;
 
     if (countryOptionElement.value === countryCode) {
-     
-        // Set Rist Level On DOM
+      // Set Rist Level On DOM
       countryNameEl.textContent = "";
       countryNameEl.textContent = countryName;
 
       // Set Rist Level On DOM
       riskLevelEl.textContent = "";
       riskLevelEl.textContent = riskLevel;
-      
+
       // Set link To More Info On DOM
-      linkToMoreInfoEl.setAttribute('href', '') 
-      linkToMoreInfoEl.setAttribute('href', linkToMoreInfo);
-            
+      linkToMoreInfoEl.setAttribute("href", "");
+      linkToMoreInfoEl.setAttribute("href", linkToMoreInfo);
+
       // Set Rist Level On DOM
       updated.textContent = "";
       updated.textContent = timeUpdated;
-  
+
       // Set Rist Level On DOM
       advisoryScore.textContent = "";
       advisoryScore.textContent = score;
@@ -357,46 +357,49 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
   }
 }
 
+function setAdvisoryCardBackgroundColor(riskLevel) {
+  // Define pastel colors for risk levels
+  var extremeWarningColor = "rgba(255, 102, 102, 0.7)"; // Red
+  var highRiskColor = "rgba(255, 179, 102, 0.7)"; // Orange
+  var mediumRiskColor = "rgba(255, 217, 102, 0.7)"; // Yellow
+  var lowRiskColor = "rgba(179, 255, 102, 0.7)"; // Green
+
+  var backgroundColor;
+
+  switch (riskLevel) {
+    // Extreme Warning (index value: 4.5 - 5)
+    case riskLevel >= 4.5:
+      backgroundColor = extremeWarningColor;
+      break;
+
+    // (index value: 3.5 - 4.5)
+    case riskLevel >= 3.5 && riskLevel < 4.5:
+      backgroundColor = highRiskColor;
+      break;
+
+    // Medium Risk (index value: 2.5 - 3.5)
+    case riskLevel >= 2.5 && riskLevel < 3.5:
+      backgroundColor = mediumRiskColor;
+      break;
+
+    // low Risk (index value: 0 - 2.5)
+    case riskLevel >= 0 && riskLevel < 2.5:
+      backgroundColor = lowRiskColor;
+      break;
+
+    // Default color if risk level is not recognized
+    default:
+      backgroundColor = "transparent";
+  }
+  advisoryCardEl
+}
+
 countryOptionElement.addEventListener("change", (e, advisoryResutls) => {
   fetchData();
   displayDataOnAdvisoryCard(advisoryResutls);
 });
 
-// var response = fetch(url);
-// var jsonResponse = response.then((response) =>
-//   response.json()
-// );
-// var data = jsonResponse.then((data) => {data});
-// console.log(data);
 
-//   var results =
-// function logResults(advice){
-//     console.log(advice);
-// }
-
-// var displayCountryInfo = function (results) {
-//   for (const key in results) {
-//     if (Object.hasOwnProperty.call(results, key)) {
-//       // Object of each country (advisory)
-//       const countryAdvisoryObject = results[key];
-
-//       // Name of country
-//       var countryName = countryAdvisoryObject.name;
-
-//       // iso Country Code
-//       var countryCode = countryAdvisoryObject.iso_alpha2;
-
-//       //
-
-//       // Creating Option Element and adding country code and name to element value and text content respectively
-//       var optionEl = document.createElement("option");
-//       optionEl.textContent = countryName;
-//       optionEl.setAttribute("value", countryCode);
-
-//       // Append the options to the element on html Document
-//       countryOptionElement.append(optionEl);
-//     }
-//   }
 
 //   var selectedvalue = countryOptionElement.value;
 //   for (const country in countryToCurrency) {
