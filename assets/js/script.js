@@ -286,6 +286,7 @@ function fetchData() {
     var advisoryResutls = data.data;
     addCountiesToSelectField(advisoryResutls);
     displayDataOnAdvisoryCard(advisoryResutls);
+    
     console.log(advisoryResutls);
   });
 }
@@ -332,6 +333,7 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
 
     // Get the country Code name from fetched object
     var countryCode = advisoryResutls[country].iso_alpha2;
+    setAdvisoryCardBackgroundColor(score)
 
     if (countryOptionElement.value === countryCode) {
       // Set Rist Level On DOM
@@ -358,40 +360,31 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
 }
 
 function setAdvisoryCardBackgroundColor(riskLevel) {
+  parseFloat(riskLevel);
   // Define pastel colors for risk levels
   var extremeWarningColor = "rgba(255, 102, 102, 0.7)"; // Red
   var highRiskColor = "rgba(255, 179, 102, 0.7)"; // Orange
   var mediumRiskColor = "rgba(255, 217, 102, 0.7)"; // Yellow
   var lowRiskColor = "rgba(179, 255, 102, 0.7)"; // Green
-
-  var backgroundColor;
-
-  switch (riskLevel) {
-    // Extreme Warning (index value: 4.5 - 5)
-    case riskLevel >= 4.5:
-      backgroundColor = extremeWarningColor;
-      break;
-
-    // (index value: 3.5 - 4.5)
-    case riskLevel >= 3.5 && riskLevel < 4.5:
-      backgroundColor = highRiskColor;
-      break;
-
-    // Medium Risk (index value: 2.5 - 3.5)
-    case riskLevel >= 2.5 && riskLevel < 3.5:
-      backgroundColor = mediumRiskColor;
-      break;
-
-    // low Risk (index value: 0 - 2.5)
-    case riskLevel >= 0 && riskLevel < 2.5:
-      backgroundColor = lowRiskColor;
-      break;
-
-    // Default color if risk level is not recognized
-    default:
-      backgroundColor = "transparent";
-  }
-  advisoryCardEl
+ console.log(typeof riskLevel);
+  
+ var cardBgColor;
+    if(riskLevel >= 4.5){ 
+        cardBgColor = extremeWarningColor;
+    }
+    else if(riskLevel >= 3.5 && riskLevel < 4.5){
+        cardBgColor = highRiskColor;
+    }
+    else if (riskLevel >= 2.5 && riskLevel < 3.5){
+        cardBgColor = mediumRiskColor;
+    }
+    else if(riskLevel >= 0 && riskLevel < 2.5){
+        cardBgColor = lowRiskColor;
+    }else {
+        cardBgColor = "white";
+    }
+console.log(cardBgColor);
+  advisoryCardEl.style.backgroundColor = cardBgColor;  
 }
 
 countryOptionElement.addEventListener("change", (e, advisoryResutls) => {
