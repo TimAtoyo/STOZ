@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://timatoyo.github.io/wonderGuard/">
-    <img src="./assets/images/WANDER GUARD LOGO.png" alt="Logo" width="80" height="80">
+    <img src="./assets/images/logo 1.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Wonderguard App</h3>
