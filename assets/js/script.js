@@ -274,6 +274,8 @@ var riskLevelEl = document.querySelector(".risk-level");
 // link to more onfo element
 var linkToMoreInfoEl = document.querySelector(".link-to-more-info");
 
+// Advisory card Element
+var advisoryCardEl = document.querySelector(".card-bg");
 
 function fetchData() {
   // Testing api to see the results
@@ -284,6 +286,7 @@ function fetchData() {
     var advisoryResutls = data.data;
     addCountiesToSelectField(advisoryResutls);
     displayDataOnAdvisoryCard(advisoryResutls);
+    
     console.log(advisoryResutls);
   });
 }
@@ -291,8 +294,7 @@ function fetchData() {
 fetchData();
 
 function addCountiesToSelectField(advisoryResutls) {
-  //   console.log(advisoryResutls);
-  // countesForm Advisory Results
+
   for (const country in advisoryResutls) {
     // Get the country name from fetched object
     var countryName = advisoryResutls[country].name;
@@ -319,10 +321,10 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
 
     // Get the country risk Level from fetched object
     var riskLevel = advisoryResutls[country].advisory.message;
-    
+
     // Get the country score Level from fetched object
     var score = advisoryResutls[country].advisory.score;
-  
+
     // Get the more info abour country risk Level from fetched object
     var linkToMoreInfo = advisoryResutls[country].advisory.source;
 
@@ -331,30 +333,61 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
 
     // Get the country Code name from fetched object
     var countryCode = advisoryResutls[country].iso_alpha2;
+   
 
     if (countryOptionElement.value === countryCode) {
-     
-        // Set Rist Level On DOM
+      // Set Rist Level On DOM
       countryNameEl.textContent = "";
       countryNameEl.textContent = countryName;
 
       // Set Rist Level On DOM
       riskLevelEl.textContent = "";
       riskLevelEl.textContent = riskLevel;
-      
+
       // Set link To More Info On DOM
-      linkToMoreInfoEl.setAttribute('href', '') 
-      linkToMoreInfoEl.setAttribute('href', linkToMoreInfo);
-            
+      linkToMoreInfoEl.setAttribute("href", "");
+      linkToMoreInfoEl.setAttribute("href", linkToMoreInfo);
+
       // Set Rist Level On DOM
       updated.textContent = "";
       updated.textContent = timeUpdated;
-  
+
       // Set Rist Level On DOM
       advisoryScore.textContent = "";
       advisoryScore.textContent = score;
+      setAdvisoryCardBackgroundColor(score)
     }
   }
+}
+
+function setAdvisoryCardBackgroundColor(riskLevel) {
+  parseFloat(riskLevel);
+  // Define pastel colors for risk levels
+  var extremeWarningColor = "linear-gradient(to right, rgba(255, 51, 51, 0.7), rgba(255, 102, 102, 0.7))"; // Red
+  var highRiskColor = "linear-gradient(to right, rgba(255, 128, 0, 0.7), rgba(255, 179, 102, 0.7))"; // Orange
+  var mediumRiskColor = "linear-gradient(to right, rgba(255, 204, 51, 0.7), rgba(255, 217, 102, 0.7)"; // Yellow
+  var lowRiskColor = "linear-gradient(to right, rgba(128, 255, 0, 0.7), rgba(179, 255, 102, 0.7)"; // Green
+ console.log(typeof riskLevel);
+  
+ var cardBgColor;
+ console.log(`Color inside card fm ${riskLevel}`);
+    if(riskLevel >= 4.5){ 
+        cardBgColor = extremeWarningColor;
+    }
+    else if(riskLevel >= 3.5 && riskLevel < 4.5){
+        cardBgColor = highRiskColor;
+    }
+    else if (riskLevel >= 2.5 && riskLevel < 3.5){
+        cardBgColor = mediumRiskColor;
+    }
+    else if(riskLevel >= 0 && riskLevel < 2.5){
+        cardBgColor = lowRiskColor;
+    }
+    else {
+        cardBgColor = "white";
+    }
+console.log(cardBgColor);
+  advisoryCardEl.style.background = cardBgColor;  
 }
 
 countryOptionElement.addEventListener("change", (e, advisoryResutls) => {
@@ -362,41 +395,7 @@ countryOptionElement.addEventListener("change", (e, advisoryResutls) => {
   displayDataOnAdvisoryCard(advisoryResutls);
 });
 
-// var response = fetch(url);
-// var jsonResponse = response.then((response) =>
-//   response.json()
-// );
-// var data = jsonResponse.then((data) => {data});
-// console.log(data);
 
-//   var results =
-// function logResults(advice){
-//     console.log(advice);
-// }
-
-// var displayCountryInfo = function (results) {
-//   for (const key in results) {
-//     if (Object.hasOwnProperty.call(results, key)) {
-//       // Object of each country (advisory)
-//       const countryAdvisoryObject = results[key];
-
-//       // Name of country
-//       var countryName = countryAdvisoryObject.name;
-
-//       // iso Country Code
-//       var countryCode = countryAdvisoryObject.iso_alpha2;
-
-//       //
-
-//       // Creating Option Element and adding country code and name to element value and text content respectively
-//       var optionEl = document.createElement("option");
-//       optionEl.textContent = countryName;
-//       optionEl.setAttribute("value", countryCode);
-
-//       // Append the options to the element on html Document
-//       countryOptionElement.append(optionEl);
-//     }
-//   }
 
 //   var selectedvalue = countryOptionElement.value;
 //   for (const country in countryToCurrency) {

@@ -75,26 +75,25 @@
     <!-- ==================== -->
     <!-- Travel Advisory Section -->
     <section class="travel-area py-5" id="travel">
-        
         <div class="container">
             <h1 class="text-white travel-text"> Travel Advisory </h1>
             <div class="row" >
                 <!--search area  -->
                 <div class="col-md-4 mb-3 d-flex align-items-start">
                     <select class="form-select country-option " aria-label="Default select example">
-                        <!-- <option selected value="default">Select a country</option> -->
+                        <option selected value="default">Select a country</option>
                     </select>
                     <!-- Search button -->
                 </div>
                 <!-- Travel advisory widget -->
                 <div class="col-md-8 d-flex justify-content-end">
-                    <div class="card mb-3 p-4">
+                    <div class="card shadow mb-3 p-4 card-bg">
                         <div class="row">
                             <div class="col-8">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <h5 class="card-title country-name"></h5>
+                                            <h4 class="card-title country-name"></h4>
                                         </div>
                                     </div>
                                     <p class="card-text risk-level">This is a wider card with supporting text below as a
@@ -105,8 +104,11 @@
                                                 class="updated"></span></small></p>
                                 </div>
                             </div>
+                            
                             <div class="col-4 d-flex align-items-center justify-content-center">
                                 <div>
+                                <h6>Risk Score</h6>
+
                                     <h1 style="font-size: 5rem;"><span class="advisory-score"></span>/5</h1>
                                 </div>
                             </div>
