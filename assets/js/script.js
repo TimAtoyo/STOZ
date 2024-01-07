@@ -333,7 +333,7 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
 
     // Get the country Code name from fetched object
     var countryCode = advisoryResutls[country].iso_alpha2;
-    setAdvisoryCardBackgroundColor(score)
+   
 
     if (countryOptionElement.value === countryCode) {
       // Set Rist Level On DOM
@@ -355,6 +355,7 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
       // Set Rist Level On DOM
       advisoryScore.textContent = "";
       advisoryScore.textContent = score;
+      setAdvisoryCardBackgroundColor(score)
     }
   }
 }
@@ -362,13 +363,14 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
 function setAdvisoryCardBackgroundColor(riskLevel) {
   parseFloat(riskLevel);
   // Define pastel colors for risk levels
-  var extremeWarningColor = "rgba(255, 102, 102, 0.7)"; // Red
-  var highRiskColor = "rgba(255, 179, 102, 0.7)"; // Orange
-  var mediumRiskColor = "rgba(255, 217, 102, 0.7)"; // Yellow
-  var lowRiskColor = "rgba(179, 255, 102, 0.7)"; // Green
+  var extremeWarningColor = "linear-gradient(to right, rgba(255, 51, 51, 0.7), rgba(255, 102, 102, 0.7))"; // Red
+  var highRiskColor = "linear-gradient(to right, rgba(255, 128, 0, 0.7), rgba(255, 179, 102, 0.7))"; // Orange
+  var mediumRiskColor = "linear-gradient(to right, rgba(255, 204, 51, 0.7), rgba(255, 217, 102, 0.7)"; // Yellow
+  var lowRiskColor = "linear-gradient(to right, rgba(128, 255, 0, 0.7), rgba(179, 255, 102, 0.7)"; // Green
  console.log(typeof riskLevel);
   
  var cardBgColor;
+ console.log(`Color inside card fm ${riskLevel}`);
     if(riskLevel >= 4.5){ 
         cardBgColor = extremeWarningColor;
     }
@@ -380,11 +382,12 @@ function setAdvisoryCardBackgroundColor(riskLevel) {
     }
     else if(riskLevel >= 0 && riskLevel < 2.5){
         cardBgColor = lowRiskColor;
-    }else {
+    }
+    else {
         cardBgColor = "white";
     }
 console.log(cardBgColor);
-  advisoryCardEl.style.backgroundColor = cardBgColor;  
+  advisoryCardEl.style.background = cardBgColor;  
 }
 
 countryOptionElement.addEventListener("change", (e, advisoryResutls) => {
