@@ -62,6 +62,7 @@ header {
   }
 
 
+
   .copyright{
     background-color: var(--nav-bgcolor);
   }
@@ -223,6 +224,13 @@ header {
 
     .wrapper .contact-form {
         padding: 20px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    body {
+       font-size: 14px;
     }
 }
 

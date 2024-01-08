@@ -482,6 +482,7 @@ function setAdvisoryCardBackgroundColor(riskLevel) {
   advisoryCardEl.style.background = cardBgColor;
 }
 
+
 function setAndGetSearchedCountriesLoalStorage() {}
 
 countryOptionElement.addEventListener("change", (e, advisoryResutls) => {
@@ -519,6 +520,7 @@ advisoryBtnContainer.addEventListener("click", (e) => {
         updated.textContent = "";
         updated.textContent = timeUpdated;
 
+
         // Set Rist Level On DOM
         advisoryScore.textContent = "";
         advisoryScore.textContent = score;
@@ -532,27 +534,34 @@ clearHistorylink.addEventListener("click", (e) => {
 });
 
 convertBtn.addEventListener('click', e => {
+
     // var currencyKEY = `637c4309b134f4ff19b2912e`
+
     // var userCurrencyInput = fromCurrency.value;
     var from = fromCurrency.value;
     var to = toCurrency.value;
     
     // Exchange API Call
-    var exchangeURL = `https://v6.exchangerate-api.com/v6/637c4309b134f4ff19b2912e/pair/${from}/${to}`;
+
+    var exchangeURL = `https://v6.exchangerate-api.com/v6/${currencyKEY}/pair/${from}/${to}`;
+
     fetch(exchangeURL)
       .then((response) => response.json())
       .then((currencyData) => {
         console.log(currencyData);
         var amoutValue = parseFloat(amount.value)
+
         if (amoutValue !== null){
              var convertedCurrency = (currencyData.conversion_rate * amoutValue).toFixed(2);
              console.log(convertedCurrency);
              output.value = '';
+
              output.value = convertedCurrency;
         }
 
       });
 })
+
 
 //   var selectedvalue = countryOptionElement.value;
 //   for (const country in countryToCurrency) {
@@ -628,3 +637,4 @@ convertBtn.addEventListener('click', e => {
 // //   displayCountryInfo(results);
 // //   mapCountryToCurrency(currencyoObject, selectedCountry);
 //   });
+
