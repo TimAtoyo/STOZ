@@ -55,7 +55,7 @@ This shows different pages after testing different validations and results.
 ![Screenshot of Webpage](./images/under-eight-input.JPG)
 
 ### When customer inputs number greater than 128 for password length
-![Screenshot of Webpage](./images/over-max-input.JPG)
+![Screenshot of Webpage](./assets/images/banner-7-travel-advisory.jpg)
 
 ## Mobile and tablet view images
 
@@ -79,9 +79,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 
 
-Project Link: [https://github.com/addy306/Password-Generator](https://github.com/addy306/Password-Generator)
+Project Link: [https://github.com/TimAtoyo/wonderGuard](https://github.com/TimAtoyo/wonderGuard)
 
-Deployed Website: [https://addy306.github.io/Password-Generator/](https://addy306.github.io/Password-Generator/)
+Deployed Website: ["https://timatoyo.github.io/wonderGuard/"]("https://timatoyo.github.io/wonderGuard/")
 
 ## Helpful Resources
 - [Google](https://www.google.com/)
