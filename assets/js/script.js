@@ -532,99 +532,26 @@ clearHistorylink.addEventListener("click", (e) => {
 });
 
 convertBtn.addEventListener('click', e => {
-    // var currencyKEY = `637c4309b134f4ff19b2912e`
+    var currencyKEY = `637c4309b134f4ff19b2912e`
     // var userCurrencyInput = fromCurrency.value;
     var from = fromCurrency.value;
     var to = toCurrency.value;
     
     // Exchange API Call
-    var exchangeURL = `https://v6.exchangerate-api.com/v6/637c4309b134f4ff19b2912e/pair/${from}/${to}`;
+    var exchangeURL = `https://v6.exchangerate-api.com/v6/${currencyKEY}/pair/${from}/${to}`;
     fetch(exchangeURL)
       .then((response) => response.json())
       .then((currencyData) => {
         console.log(currencyData);
         var amoutValue = parseFloat(amount.value)
-        if (amoutValue !== null){
+        if (amoutValue !== null || amoutValue !== undefined ){
              var convertedCurrency = (currencyData.conversion_rate * amoutValue).toFixed(2);
              console.log(convertedCurrency);
              output.value = '';
+            //  set value
              output.value = convertedCurrency;
         }
 
       });
 })
 
-//   var selectedvalue = countryOptionElement.value;
-//   for (const country in countryToCurrency) {
-//     if (Object.hasOwnProperty.call(countryToCurrency, country)) {
-//       const selectedCountry = countryToCurrency[country];
-//       if (selectedvalue === country) {
-//         // console.log(`this is the one im looking for ${selectedCountry}`);
-//         return selectedCountry;
-//       }
-//     }
-//   }
-// };
-
-// var userCurrencyInput = fromCurrency.value;
-// // console.log(`usser input ${userCurrencyInput}`);
-
-// // // Exchange API Call
-// // var exchangeURL = `https://v6.exchangerate-api.com/v6/bd30a0f67f97361ae2f2083c/latest/${userCurrencyInput}`;
-// // fetch(exchangeURL)
-// //   .then((response) => response.json())
-// //   .then((currencyData) => {
-// //     var currencyObject = currencyData.conversion_rates;
-// //     mapCountryToCurrency(currencyObject);
-// //   });
-
-// mapCountryToCurrencyField();
-
-// function mapCountryToCurrency(currencyoObject) {
-//   var selectedCountry = displayCountryInfo();
-//   for (const key in currencyoObject) {
-//     if (Object.hasOwnProperty.call(currencyoObject, key)) {
-//       const element = currencyoObject[key];
-//       // console.log(element);
-//       // var currencyFromSelectElement = document.crea
-//     }
-//   }
-//   //   console.log(`this is the passed in country ${selectedCountry}`);
-// }
-
-//  function advisoryCardPopulartor(results, countryNameEl) {
-//   for (const key in results) {
-//     if (Object.hasOwnProperty.call(results, key)) {
-//       // Object of each country (advisory)
-//       const countryAdvisoryObject = results[key];
-
-//       // Name of country
-//       var countryName = countryAdvisoryObject.name;
-
-//       var riskLevel = countryAdvisoryObject.name;
-
-//     //   console.log(countryOptionElement);
-//     //   console.log(countryNameEl);
-//       // iso Country Code
-//       var countryCode = countryAdvisoryObject.iso_alpha2;
-//       if (countryOptionElement.value === countryCode) {
-//         countryNameEl.textContent = "";
-//         countryNameEl.textContent = countryName;
-//         console.log(`Testing`);
-
-//         // riskLevel
-//         // linkToMoreInfo
-//         // time
-//       }
-//     }
-//   }
-// };
-
-// countryOptionElement.addEventListener("change", async (e) => {
-//     e.preventDefault()
-//     console.log();
-//    await advisoryCardPopulartor(results, countryNameEl);
-//     //   console.log(e.target);
-// //   displayCountryInfo(results);
-// //   mapCountryToCurrency(currencyoObject, selectedCountry);
-//   });
