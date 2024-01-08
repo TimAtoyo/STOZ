@@ -548,6 +548,7 @@ convertBtn.addEventListener('click', e => {
              var convertedCurrency = (currencyData.conversion_rate * amoutValue).toFixed(2);
              console.log(convertedCurrency);
              output.value = '';
+            //  set value
              output.value = convertedCurrency;
         }
 
