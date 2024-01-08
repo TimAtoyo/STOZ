@@ -1,11 +1,22 @@
+:root{
+    --nav-bgcolor: #293243;
+    --light-blue: #61a0ff;
+}
 header {
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: rgb(201, 228, 236);
 }
+
+
 .container-fluid {
-    background-color: #293243;
+    background-color: var(--nav-bgcolor);
     padding: 0px;
+}
+
+
+.travel-card{
+    padding-left: 50px;
 }
 .navbar-brand {
     width: 100px;
@@ -13,33 +24,213 @@ header {
 }
 .travel-area {
     padding-top: 50px;
-    background-color: #293243;
+    background-color: var(--nav-bgcolor);
     box-sizing: border-box;
 }
 
+
 .currency-section {
     padding-top: 50px;
-    background-color: #61a0ff;
+    background-color: var(--light-blue);
     box-sizing: border-box;
 }
+
 
 .carousel-item {
     height: 150px;
   }
-  
+ 
   .carousel-item img {
       position: absolute;
       top: 0;
       left: 0;
-      min-height: 150px;
+      height: 100%;
   }
+
+
+  .carousel-caption {
+
+
+    color: var(--light-blue)!important;
+    margin-left: -97px;
+    text-align: left!important;
+  }
+
 
   .travel-text{
     padding-bottom: 10px;
   }
+
+
+
+  .copyright{
+    background-color: var(--nav-bgcolor);
+  }
+
+
+  footer {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    background-color: var(--nav-bgcolor);
+   
+}
+
+
+.wrapper {
+    max-width: 850px;
+    margin: 50px auto;
+    height: 600px;
+    background-color: #FFF;
+    overflow: hidden;
+    box-shadow: 5px 25px 35px #3535356b;
+}
+
+
+.wrapper .bg-yellow {
+    background-color: #fdc91f;
+    height: 100%;
+    width: 40%;
+    padding-top: 40px;
+    padding-left: 50px;
+    padding-right: 20px;
+}
+
+
+
+
+.wrapper .bg-yellow .text-white {
+    font-size: 3rem;
+}
+
+
+.wrapper .bg-yellow .cursive {
+    font-family: 'Kalam', cursive;
+    font-size: 1rem;
+    font-weight: 600;
+
+
+}
+
+
+.wrapper .contact-form {
+    width: 100%;
+    padding: 20px 80px 20px 50px;
+}
+
+
+.wrapper .contact-form .h3 {
+    padding-top: 15px;
+    font-weight: 700;
+}
+
+
+.wrapper .contact-form label {
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+
+.wrapper .contact-form textarea {
+    height: 120px;
+}
+
+
+.wrapper .contact-form .form-control {
+    background-color: #e7e7e7;
+    box-shadow: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    border-top: 1px solid #bbb;
+}
+
+
+
+
+.wrapper .contact-form .btn {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+
+.wrapper .contact-form .btn.btn-default {
+    color: var(--nav-bgcolor);
+}
+
+
+
+
+.wrapper .contact-form .btn.btn-primary {
+    background: var(--nav-bgcolor);
+    border: none;
+    padding: 8px 18px;
+    box-shadow: 0 8px 12px #3535356b;
+}
+
+
+.wrapper .contact-form .btn.btn-primary:hover {
+    background-color: var(--nav-bgcolor);
+}
+
+
+.modal .modal-content .modal-header .fas {
+    color: var(--nav-bgcolor);
+   
+}
+
+
+@media(max-width: 900.5px) {
+    .wrapper {
+        margin: 20px;
+    }
+}
+
+
+@media(max-width: 575.5px) {
+
+
+    .wrapper .contact-form {
+        padding: 40px;
+    }
+
+
+    .wrapper .bg-yellow {
+        padding-left: 30px;
+    }
+}
+
+
+@media(max-width: 496px) {
+
+
+    .wrapper .bg-yellow {
+        display: none;
+    }
+
+
+}
+
+
+@media(max-width: 350px) {
+
+
+    .wrapper {
+        height: 570px;
+    }
+
+
+    .wrapper .contact-form {
+        padding: 20px;
+    }
+}
+
 
 @media (max-width: 768px) {
     body {
        font-size: 14px;
     }
 }
+
