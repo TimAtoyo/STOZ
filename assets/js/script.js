@@ -295,6 +295,12 @@ var amount = document.querySelector("#amount");
 // Curency output input element
 var output = document.querySelector("#output");
 
+// Curency output input element
+var output = document.querySelector("#output");
+
+// Curency output input element
+var conversionHelp = document.querySelector("#conversionHelp");
+
 function fetchData() {
   // Testing api to see the results
   var url = `https://www.travel-advisory.info/api`;
@@ -542,16 +548,24 @@ convertBtn.addEventListener('click', e => {
     fetch(exchangeURL)
       .then((response) => response.json())
       .then((currencyData) => {
-        console.log(currencyData);
-        var amoutValue = parseFloat(amount.value)
-        if (amoutValue !== null || amoutValue !== undefined ){
+          // amoutValue
+          var amoutValue = parseFloat(amount.value)
+        if( amoutValue === undefined){
+
+            conversionHelp.textContent = 'Please enter and amount'
+        }else {
+            conversionHelp.textContent = ''
              var convertedCurrency = (currencyData.conversion_rate * amoutValue).toFixed(2);
              console.log(convertedCurrency);
              output.value = '';
+             if(convertedCurrency === 'NaN'){
+                output.value = '';
+                conversionHelp.textContent = 'Please enter and amount'
+             }else {
+                output.value = convertedCurrency;
+             }
             //  set value
-             output.value = convertedCurrency;
         }
-
       });
 })
 
