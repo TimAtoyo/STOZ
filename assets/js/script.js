@@ -378,6 +378,7 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
       // Set link To More Info On DOM
       linkToMoreInfoEl.setAttribute("href", "");
       linkToMoreInfoEl.setAttribute("href", linkToMoreInfo);
+      linkToMoreInfoEl.setAttribute("target", '_blank');
 
       // Set Rist Level On DOM
       updated.textContent = "";
