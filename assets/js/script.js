@@ -282,7 +282,18 @@ var previousSearch = document.querySelector(".previousSearch");
 
 // Advisory button container Element
 var advisoryBtnContainer = document.querySelector("#advisoryBtnContainer");
-console.log(advisoryBtnContainer);
+
+// Advisory button container Element
+var clearHistorylink = document.querySelector(".clearHistorylink");
+
+// convert-btn element
+var convertBtn = document.querySelector(".convert-btn");
+
+// Curency amount input element
+var amount = document.querySelector("#amount");
+
+// Curency output input element
+var output = document.querySelector("#output");
 
 function fetchData() {
   // Testing api to see the results
@@ -338,34 +349,30 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
     // Get the country Code name from fetched object
     var countryCode = advisoryResutls[country].iso_alpha2;
 
+    //   Create Button for Previoudly searched
+    var countriesParsedNotMapped = JSON.parse(
+      localStorage.getItem("countries")
+    );
+    if (countriesParsedNotMapped !== null) {
+      var countriesParsed = countriesParsedNotMapped.map((x) => x);
 
-          //   Create Button for Previoudly searched
-          var countriesParsedNotMapped =  JSON.parse(localStorage.getItem("countries"));
-          console.log(countriesParsedNotMapped);
-          if (countriesParsedNotMapped !== null) {
-           var countriesParsed = countriesParsedNotMapped.map((x => x));
-
-            console.log(countriesParsed);
-    
-            for (let i = 0; i < countriesParsed.length; i++) {
-              advisoryBtnContainer.innerHTML = "";
-              for (const country in countriesParsed) {
-                var btnCountryName = countriesParsed[country].countryNameLS;
-                console.log(`Country name inside loop ${btnCountryName}`);
-                console.log(`inside button loop`);
-                var previousAdvisoryButton = document.createElement("button");
-                previousAdvisoryButton.classList.add(
-                  "btn-secondary",
-                  "btn",
-                  "previousSearch",
-                  "d-flex",
-                  "mt-3"
-                );
-                previousAdvisoryButton.textContent = btnCountryName;
-                advisoryBtnContainer.append(previousAdvisoryButton);
-              }
-            }
-          }
+      for (let i = 0; i < countriesParsed.length; i++) {
+        advisoryBtnContainer.innerHTML = "";
+        for (const country in countriesParsed) {
+          var btnCountryName = countriesParsed[country].countryNameLS;
+          var previousAdvisoryButton = document.createElement("button");
+          previousAdvisoryButton.classList.add(
+            "btn-secondary",
+            "btn",
+            "previousSearch",
+            "d-flex",
+            "mt-3"
+          );
+          previousAdvisoryButton.textContent = btnCountryName;
+          advisoryBtnContainer.append(previousAdvisoryButton);
+        }
+      }
+    }
     if (countryOptionElement.value === countryCode) {
       // Set Rist Level On DOM
       countryNameEl.textContent = "";
@@ -378,7 +385,7 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
       // Set link To More Info On DOM
       linkToMoreInfoEl.setAttribute("href", "");
       linkToMoreInfoEl.setAttribute("href", linkToMoreInfo);
-      linkToMoreInfoEl.setAttribute("target", '_blank');
+      linkToMoreInfoEl.setAttribute("target", "_blank");
 
       // Set Rist Level On DOM
       updated.textContent = "";
@@ -399,10 +406,6 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
       );
       previousAdvisoryButton.textContent = countryName;
       advisoryBtnContainer.append(previousAdvisoryButton);
-
-
-
-      //   console.log(previousAdvisoryButton);
       //
       var riskPrevBtn = {
         countryNameLS: countryName,
@@ -412,9 +415,8 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
         timeUpdatedLS: timeUpdated,
         countryCodeLS: countryCode,
       };
-      // Local Storage
 
-      console.log(countriesParsed);
+      // Local Storage
       if (!countriesParsed) {
         var countriesArr = [];
         countriesArr.push(riskPrevBtn);
@@ -426,10 +428,31 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
           JSON.stringify(countriesParsed)
         );
       }
-      console.log(countriesParsed);
     }
   }
 }
+
+
+function mapcCountryToCurrency(){
+    console.log(countryToCurrency);
+    for (const key in countryToCurrency) {
+        if (Object.hasOwnProperty.call(countryToCurrency, key)) {
+            var currency = countryToCurrency[key];
+
+            var fromCurrencyEl = document.createElement('option');
+            var toCurrencyEl = document.createElement('option');
+            fromCurrencyEl.textContent = currency;
+            toCurrencyEl.textContent = currency;
+
+            fromCurrency.append(fromCurrencyEl);
+            toCurrency.append(toCurrencyEl);
+            
+        }
+    }
+}
+mapcCountryToCurrency()
+
+
 
 function setAdvisoryCardBackgroundColor(riskLevel) {
   parseFloat(riskLevel);
@@ -442,7 +465,6 @@ function setAdvisoryCardBackgroundColor(riskLevel) {
     "linear-gradient(to right, rgba(255, 204, 51, 0.7), rgba(255, 217, 102, 0.7)"; // Yellow
   var lowRiskColor =
     "linear-gradient(to right, rgba(128, 255, 0, 0.7), rgba(179, 255, 102, 0.7)"; // Green
-  //   console.log(typeof riskLevel);
 
   var cardBgColor;
   console.log(`Color inside card fm ${riskLevel}`);
@@ -457,7 +479,6 @@ function setAdvisoryCardBackgroundColor(riskLevel) {
   } else {
     cardBgColor = "white";
   }
-  //   console.log(cardBgColor);
   advisoryCardEl.style.background = cardBgColor;
 }
 
@@ -467,10 +488,8 @@ countryOptionElement.addEventListener("change", (e, advisoryResutls) => {
   fetchData();
   displayDataOnAdvisoryCard(advisoryResutls);
 });
-console.log(previousSearch);
 
 advisoryBtnContainer.addEventListener("click", (e) => {
-  console.log(e.target.innerText);
 
   var countriesParsed = JSON.parse(localStorage.getItem("countries"));
 
@@ -508,7 +527,32 @@ advisoryBtnContainer.addEventListener("click", (e) => {
   }
 });
 
-// Re
+clearHistorylink.addEventListener("click", (e) => {
+  localStorage.clear();
+});
+
+convertBtn.addEventListener('click', e => {
+    // var currencyKEY = `637c4309b134f4ff19b2912e`
+    // var userCurrencyInput = fromCurrency.value;
+    var from = fromCurrency.value;
+    var to = toCurrency.value;
+    
+    // Exchange API Call
+    var exchangeURL = `https://v6.exchangerate-api.com/v6/637c4309b134f4ff19b2912e/pair/${from}/${to}`;
+    fetch(exchangeURL)
+      .then((response) => response.json())
+      .then((currencyData) => {
+        console.log(currencyData);
+        var amoutValue = parseFloat(amount.value)
+        if (amoutValue !== null){
+             var convertedCurrency = (currencyData.conversion_rate * amoutValue).toFixed(2);
+             console.log(convertedCurrency);
+             output.value = '';
+             output.value = convertedCurrency;
+        }
+
+      });
+})
 
 //   var selectedvalue = countryOptionElement.value;
 //   for (const country in countryToCurrency) {
@@ -522,23 +566,6 @@ advisoryBtnContainer.addEventListener("click", (e) => {
 //   }
 // };
 
-// function mapCountryToCurrencyField() {
-//   for (const country in countryToCurrency) {
-//     if (Object.hasOwnProperty.call(countryToCurrency, country)) {
-//       const element = countryToCurrency[country];
-
-//       var currencyfromOptionEl = document.createElement("option");
-//       currencyfromOptionEl.innerText = element;
-//       currencyfromOptionEl.setAttribute("value", element);
-//       fromCurrency.append(currencyfromOptionEl);
-
-//       var currencyToOptionEl = document.createElement("option");
-//       currencyToOptionEl.innerText = element;
-//       currencyToOptionEl.setAttribute("value", element);
-//       toCurrency.append(currencyToOptionEl);
-//     }
-//   }
-// }
 // var userCurrencyInput = fromCurrency.value;
 // // console.log(`usser input ${userCurrencyInput}`);
 
@@ -601,20 +628,3 @@ advisoryBtnContainer.addEventListener("click", (e) => {
 // //   displayCountryInfo(results);
 // //   mapCountryToCurrency(currencyoObject, selectedCountry);
 //   });
-
-// //   countryOptionElement.addEventListener("change", async (e) => {
-// //     e.preventDefault();
-
-// //     // Fetch data and wait for it to complete
-// //     const response = await fetch(url);
-// //     const data = await response.json();
-
-// //     // Results object
-// //     const results = data.data;
-
-// //     // Call displayCountryInfo to populate the country options
-// //     const selectedCountry = displayCountryInfo(results);
-
-// //     // Call advisoryCardPopulartor with the necessary arguments
-// //     advisoryCardPopulartor(results, countryNameEl);
-// // });

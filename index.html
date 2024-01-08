@@ -66,7 +66,11 @@
                         <option selected value="default">Select a country</option>
                     </select>
                     <!-- Search button -->
-                    <div class="mt-5 " id="advisoryBtnContainer">
+                    <div class="clearHistory mt-4">
+
+                        <a href="" class="mt-5 clearHistorylink">Clear All</a>
+                    </div>
+                    <div class="mt-4 " id="advisoryBtnContainer">
 
                     </div>
                 </div>
@@ -120,17 +124,18 @@
                             <div class="input-group mb-3">
                                 <label class="input-group-text" for="inputGroupSelect01">From</label>
                                 <select class="form-select fromCurrency" id="inputGroupSelect01">
-    
+                                    <option value="USD">USD</option>
                                 </select>
                             </div>
                             <div class="input-group mb-3">
                                 <label class="input-group-text" for="inputGroupSelect02">To</label>
                                 <select class="form-select toCurrency" id="inputGroupSelect02">
+                                    <option value="GBP">GBP</option>
                                 </select>
                             </div>
                             <div class="input-group mb-3">
-                                <button class="btn btn-outline-success text-light bg-success" type="button"
-                                    id="button-addon1" onclick="convert()">Convert</button>
+                                <button class="btn btn-outline-success text-light bg-success convert-btn" type="button"
+                                    id="button-addon1" >Convert</button>
                                 <input type="text" class="form-control" placeholder="" aria-label="Convert" id="output"
                                     aria-describedby="button-addon1" readonly>
                             </div>
