@@ -277,6 +277,10 @@ var linkToMoreInfoEl = document.querySelector(".link-to-more-info");
 // Advisory card Element
 var advisoryCardEl = document.querySelector(".card-bg");
 
+// Advisory button container Element
+var advisoryBtnContainer = document.querySelector("#advisoryBtnContainer");
+console.log(advisoryBtnContainer);
+
 function fetchData() {
   // Testing api to see the results
   var url = `https://www.travel-advisory.info/api`;
@@ -286,7 +290,7 @@ function fetchData() {
     var advisoryResutls = data.data;
     addCountiesToSelectField(advisoryResutls);
     displayDataOnAdvisoryCard(advisoryResutls);
-    
+
     console.log(advisoryResutls);
   });
 }
@@ -294,7 +298,6 @@ function fetchData() {
 fetchData();
 
 function addCountiesToSelectField(advisoryResutls) {
-
   for (const country in advisoryResutls) {
     // Get the country name from fetched object
     var countryName = advisoryResutls[country].name;
@@ -333,7 +336,6 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
 
     // Get the country Code name from fetched object
     var countryCode = advisoryResutls[country].iso_alpha2;
-   
 
     if (countryOptionElement.value === countryCode) {
       // Set Rist Level On DOM
@@ -355,7 +357,41 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
       // Set Rist Level On DOM
       advisoryScore.textContent = "";
       advisoryScore.textContent = score;
-      setAdvisoryCardBackgroundColor(score)
+      setAdvisoryCardBackgroundColor(score);
+
+      //   Create Button for Previoudly searched
+      var previousAdvisoryButton = document.createElement("button");
+      previousAdvisoryButton.classList.add(
+        "btn-secondary",
+        "btn",
+        "previousSearch",
+        "d-flex",
+        "mt-3"
+      );
+
+      previousAdvisoryButton.textContent = countryName;
+      advisoryBtnContainer.append(previousAdvisoryButton);
+
+      console.log(previousAdvisoryButton);
+      //
+      var riskPrevBtn = {
+        countryNameLS: countryName,
+        riskLevelLS: riskLevel,
+        scoreLS: score,
+        linkToMoreInfoLS: linkToMoreInfo,
+        timeUpdatedLS: timeUpdated,
+        countryCodeLS: countryCode,
+      };
+
+      // Local Storage
+      var countriesParsed = JSON.parse(localStorage.getItem("countries"));
+      console.log(countriesParsed);
+      if (!countriesParsed) {
+        var countriesArr = [];
+        countriesArr.push(riskPrevBtn);
+        window.localStorage.setItem("countries", JSON.stringify(countriesArr));
+      }
+      countriesParsed.push(riskPrevBtn);
     }
   }
 }
@@ -363,39 +399,41 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
 function setAdvisoryCardBackgroundColor(riskLevel) {
   parseFloat(riskLevel);
   // Define pastel colors for risk levels
-  var extremeWarningColor = "linear-gradient(to right, rgba(255, 51, 51, 0.7), rgba(255, 102, 102, 0.7))"; // Red
-  var highRiskColor = "linear-gradient(to right, rgba(255, 128, 0, 0.7), rgba(255, 179, 102, 0.7))"; // Orange
-  var mediumRiskColor = "linear-gradient(to right, rgba(255, 204, 51, 0.7), rgba(255, 217, 102, 0.7)"; // Yellow
-  var lowRiskColor = "linear-gradient(to right, rgba(128, 255, 0, 0.7), rgba(179, 255, 102, 0.7)"; // Green
- console.log(typeof riskLevel);
-  
- var cardBgColor;
- console.log(`Color inside card fm ${riskLevel}`);
-    if(riskLevel >= 4.5){ 
-        cardBgColor = extremeWarningColor;
-    }
-    else if(riskLevel >= 3.5 && riskLevel < 4.5){
-        cardBgColor = highRiskColor;
-    }
-    else if (riskLevel >= 2.5 && riskLevel < 3.5){
-        cardBgColor = mediumRiskColor;
-    }
-    else if(riskLevel >= 0 && riskLevel < 2.5){
-        cardBgColor = lowRiskColor;
-    }
-    else {
-        cardBgColor = "white";
-    }
-console.log(cardBgColor);
-  advisoryCardEl.style.background = cardBgColor;  
+  var extremeWarningColor =
+    "linear-gradient(to right, rgba(255, 51, 51, 0.7), rgba(255, 102, 102, 0.7))"; // Red
+  var highRiskColor =
+    "linear-gradient(to right, rgba(255, 128, 0, 0.7), rgba(255, 179, 102, 0.7))"; // Orange
+  var mediumRiskColor =
+    "linear-gradient(to right, rgba(255, 204, 51, 0.7), rgba(255, 217, 102, 0.7)"; // Yellow
+  var lowRiskColor =
+    "linear-gradient(to right, rgba(128, 255, 0, 0.7), rgba(179, 255, 102, 0.7)"; // Green
+  console.log(typeof riskLevel);
+
+  var cardBgColor;
+  console.log(`Color inside card fm ${riskLevel}`);
+  if (riskLevel >= 4.5) {
+    cardBgColor = extremeWarningColor;
+  } else if (riskLevel >= 3.5 && riskLevel < 4.5) {
+    cardBgColor = highRiskColor;
+  } else if (riskLevel >= 2.5 && riskLevel < 3.5) {
+    cardBgColor = mediumRiskColor;
+  } else if (riskLevel >= 0 && riskLevel < 2.5) {
+    cardBgColor = lowRiskColor;
+  } else {
+    cardBgColor = "white";
+  }
+  console.log(cardBgColor);
+  advisoryCardEl.style.background = cardBgColor;
 }
+
+function setAndGetSearchedCountriesLoalStorage() {}
 
 countryOptionElement.addEventListener("change", (e, advisoryResutls) => {
   fetchData();
   displayDataOnAdvisoryCard(advisoryResutls);
 });
 
-
+// Re
 
 //   var selectedvalue = countryOptionElement.value;
 //   for (const country in countryToCurrency) {
