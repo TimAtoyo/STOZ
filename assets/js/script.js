@@ -293,8 +293,6 @@ function fetchData() {
     var advisoryResutls = data.data;
     addCountiesToSelectField(advisoryResutls);
     displayDataOnAdvisoryCard(advisoryResutls);
-
-    console.log(advisoryResutls);
   });
 }
 
@@ -342,9 +340,11 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
 
 
           //   Create Button for Previoudly searched
-          var countriesParsed = JSON.parse(localStorage.getItem("countries"));
-          console.log(countriesParsed);
-          if (countriesParsed !== null) {
+          var countriesParsedNotMapped =  JSON.parse(localStorage.getItem("countries"));
+          console.log(countriesParsedNotMapped);
+          if (countriesParsedNotMapped !== null) {
+           var countriesParsed = countriesParsedNotMapped.map((x => x));
+
             console.log(countriesParsed);
     
             for (let i = 0; i < countriesParsed.length; i++) {
@@ -426,16 +426,10 @@ function displayDataOnAdvisoryCard(advisoryResutls) {
           JSON.stringify(countriesParsed)
         );
       }
-
-      //   window.localStorage.setItem("countries", JSON.stringify(countriesParsed));
       console.log(countriesParsed);
     }
   }
 }
-
-// function getAndSetLocalStorage(riskPrevBtn) {
-
-// }
 
 function setAdvisoryCardBackgroundColor(riskLevel) {
   parseFloat(riskLevel);
@@ -510,12 +504,6 @@ advisoryBtnContainer.addEventListener("click", (e) => {
         advisoryScore.textContent = "";
         advisoryScore.textContent = score;
       }
-
-      //   riskLevelLS
-      //   scoreLS
-      //   linkToMoreInfoLS
-      //   timeUpdatedLS
-      //   countryCodeLS
     }
   }
 });
