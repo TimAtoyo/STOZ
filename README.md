@@ -72,13 +72,13 @@ This shows different functionalities in the webpage display after testing differ
 * CSS
 * Javascript
 * Bootstrap
-* 
+* APIs
 
 
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+created under the STOZ INC. License. See `LICENSE.txt` for more information.
 
 
 
