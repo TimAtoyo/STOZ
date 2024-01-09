@@ -31,7 +31,7 @@ In this project we created an application that an employee can use to generate a
 ## App Display Pages
 This shows different pages after testing different validations and results.
 ### HTML Browser Default Page
-![Screenshot of Webpage](./images/browser-default-page.JPG)
+![Screenshot of Webpage](./assets/images/Website-screenshot.png)
 
 ### When customer checks only "lowercase" checkbox
 ![Screenshot of Webpage](./images/lowercase.JPG)
