@@ -12,9 +12,9 @@
   <p align="center">
     An application that helps a traveler to know risk level of any country and convert currency by the click of a button.   
     <br />
-    <a href="https://github.com/addy306/Password-Generator"><strong>GitHub repository</strong></a>
+    <a href="https://github.com/TimAtoyo/ub-practice-repo.git"><strong>GitHub repository</strong></a>
     <br />
-    <a href="https://addy306.github.io/Password-Generator/"><strong>Deployed Website</strong></a>
+    <a href="https://timatoyo.github.io/wonderGuard"><strong>Deployed Website</strong></a>
     <br />
     <br />
     
@@ -29,7 +29,7 @@ In this project we created an application that an employee can use to generate a
 
 
 ## App Display Pages
-This shows different pages after testing different validations and results.
+This shows different functionalities in the webpage display after testing different validations and results.
 ### HTML Browser Default Page
 ![Screenshot of Webpage](./assets/images/Website-screenshot.png)
 
