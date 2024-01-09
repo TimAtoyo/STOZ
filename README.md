@@ -1,13 +1,13 @@
-# WONDERGUARD
+# WANDER-GUARD
 
 <!-- Developer Signature and github details -->
 <br />
 <div align="center">
   <a href="https://timatoyo.github.io/wonderGuard/">
-    <img src="./assets/images/logo 1.png" alt="Logo" width="80" height="80">
+    <img src="./assets/images/logo-1.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Wonderguard App</h3>
+<h3 align="center">Wander-Guard App</h3>
 
   <p align="center">
     An application that helps a traveler to know risk level of any country and convert currency by the click of a button.   
@@ -25,7 +25,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-In this project I create an application that an employee can use to generate a random password based on criteria they’ve selected. This app runs in the browser, and features dynamically updated HTML and CSS powered by JavaScript code. It has a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes. The shades of Blue and white combination makes the UI more appealing to users.
+In this project we created an application that an employee can use to generate a random password based on the criteria they have selected. This app runs in the browser, and features dynamically updated HTML and CSS powered by JavaScript code. It has a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes. The shades of Blue and white combination makes the UI more appealing to users.
 
 
 ## App Display Pages
@@ -67,9 +67,13 @@ This shows different pages after testing different validations and results.
 
 ### Built With
 
+
 * HTML
 * CSS
 * Javascript
+* Bootstrap
+* 
+
 
 <!-- LICENSE -->
 ## License
