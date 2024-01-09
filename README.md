@@ -55,7 +55,7 @@ This shows different functionalities in the webpage display after testing differ
 ![Screenshot of Webpage](./images/under-eight-input.JPG)
 
 ### When customer inputs number greater than 128 for password length
-![Screenshot of Webpage](./assets/images/banner-7-travel-advisory.jpg)
+![Screenshot of Webpage](./assets/images/)
 
 ## Mobile and tablet view images
 
@@ -85,7 +85,7 @@ created under the STOZ INC. License. See `LICENSE.txt` for more information.
 
 Project Link: [https://github.com/TimAtoyo/wonderGuard](https://github.com/TimAtoyo/wonderGuard)
 
-Deployed Website: ["https://timatoyo.github.io/wonderGuard/"]("https://timatoyo.github.io/wonderGuard/")
+Deployed Website: [https://timatoyo.github.io/wonderGuard/"](https://timatoyo.github.io/wonderGuard/)
 
 ## Helpful Resources
 - [Google](https://www.google.com/)
