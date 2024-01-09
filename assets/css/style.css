@@ -8,12 +8,18 @@ header {
     background-color: rgb(201, 228, 236);
 }
 
+h1 {
+    font-size: clamp(3rem, 5vw, 5rem);
+}
+
 
 .container-fluid {
-    background-color: var(--nav-bgcolor);
     padding: 0px;
 }
 
+nav {
+    background-color: var(--nav-bgcolor);
+}
 
 .travel-card{
     padding-left: 50px;
@@ -71,7 +77,7 @@ header {
   footer {
     position: absolute;
     width: 100%;
-    height: 60px;
+    margin: 0;
     background-color: var(--nav-bgcolor);
    
 }
@@ -90,14 +96,19 @@ header {
 .wrapper .bg-yellow {
     background-color: #fdc91f;
     height: 100%;
-    width: 40%;
+    width: 100%;
     padding-top: 40px;
     padding-left: 50px;
     padding-right: 20px;
 }
 
+.bg-yellow-modal {
+    background-color: #fdc91f;
+}
 
-
+.bg-dark {
+    background-color: #3535356b !important;
+}
 
 .wrapper .bg-yellow .text-white {
     font-size: 3rem;
@@ -181,6 +192,16 @@ header {
    
 }
 
+.currency-img {
+    width: 70%;
+    height: auto;
+}
+
+@media screen and (max-width: 490px) {
+    h1 {
+        font-size: clamp(3rem, 5vw, 1.5rem) !important;
+    }
+}
 
 @media(max-width: 900.5px) {
     .wrapper {
@@ -234,3 +255,8 @@ header {
     }
 }
 
+@media (max-width: 480px) {
+    .currency-img {
+        width: 100%;
+    }
+}
