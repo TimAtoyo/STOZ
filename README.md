@@ -30,7 +30,8 @@ In this project we created a seamless traveller's companion application that a u
 
 
 ## App Display Pages
-Below are images of different sections and features of the webpage in the webpage display after testing different validations and results.
+Below are the images of different sections and features of the webpage.
+ 
 ### HTML Browser Default Page
 ![Screenshot of Webpage](./assets/images/Website-screenshot.png)
 
