@@ -10,7 +10,7 @@
 <h3 align="center">Wander-Guard App</h3>
  
   
-<h5 align="center">One stop for your travels. </h5> 
+<h5 align="center">Your Ultimate Traveller's Companion App!  </h5> 
     <br />
     <a href="https://github.com/TimAtoyo/wonderGuard"><strong>GitHub repository</strong></a>
     <br />
@@ -30,7 +30,7 @@ In this project we created a seamless traveller's companion application that a u
 
 
 ## App Display Pages
-This shows different functionalities in the webpage display after testing different validations and results.
+Below are images of different sections and features of the webpage in the webpage display after testing different validations and results.
 ### HTML Browser Default Page
 ![Screenshot of Webpage](./assets/images/Website-screenshot.png)
 
