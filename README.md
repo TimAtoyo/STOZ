@@ -8,24 +8,25 @@
   </a>
 
 <h3 align="center">Wander-Guard App</h3>
-
-  <p align="center">
-    An application that helps a traveler to know risk level of any country and convert currency by the click of a button.   
+ 
+  
+<h5 align="center">One stop for your travels. </h5> 
     <br />
-    <a href="https://github.com/TimAtoyo/ub-practice-repo.git"><strong>GitHub repository</strong></a>
+    <a href="https://github.com/TimAtoyo/wonderGuard"><strong>GitHub repository</strong></a>
     <br />
     <a href="https://timatoyo.github.io/wonderGuard"><strong>Deployed Website</strong></a>
     <br />
     <br />
     
-  </p>
+  
 </div>
 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-In this project we created an application that an employee can use to generate a random password based on the criteria they have selected. This app runs in the browser, and features dynamically updated HTML and CSS powered by JavaScript code. It has a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes. The shades of Blue and white combination makes the UI more appealing to users.
+In this project we created a seamless traveller's companion application that a user can use to navigate the world confidently with real-time information from top travel advisory APIs, ensuring a user stay informed and updated about safety and risk levels of any proposed travel destination. This app runs in the browser, and features dynamically updated HTML and CSS powered by JavaScript code. It has a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes. The shades of Blue and white combination makes the UI more appealing to users.
+
 
 
 ## App Display Pages
