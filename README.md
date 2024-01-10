@@ -10,7 +10,7 @@
 <h3 align="center">Wander-Guard App</h3>
  
   
-<h5 align="center">One stop for your travels. </h5> 
+<h5 align="center">Your Ultimate Traveller's Companion App!  </h5> 
     <br />
     <a href="https://github.com/TimAtoyo/wonderGuard"><strong>GitHub repository</strong></a>
     <br />
@@ -25,46 +25,53 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-In this project we created a seamless traveller's companion application that a user can use to navigate the world confidently with real-time information from top travel advisory APIs, ensuring a user stay informed and updated about safety and risk levels of any proposed travel destination. This app runs in the browser, and features dynamically updated HTML and CSS powered by JavaScript code. It has a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes. The shades of Blue and white combination makes the UI more appealing to users.
+In this project we created a seamless traveller's companion application that a user can use to navigate the world confidently with real-time information. We used two server-side APIs, travel advisory API and an currency converter API. These features ensures a user stay informed and updated about safety and risk levels of any proposed travel destination. This app runs in the browser, and features dynamically updated HTML and CSS powered by JavaScript code. It has a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes. The shades of Blue and white combination makes the UI more appealing to users. It is easy to navigate to various sections with menu on both the header and the footer.
 
 
 
 ## App Display Pages
-This shows different functionalities in the webpage display after testing different validations and results.
-### HTML Browser Default Page
-![Screenshot of Webpage](./assets/images/Website-screenshot.png)
+Below are the images of different sections and features of the webpage.
 
-### When customer checks only "lowercase" checkbox
-![Screenshot of Webpage](./images/lowercase.JPG)
+### Front Page (Header Section)
+![Screenshot of Webpage](./assets/images/front-page-1.jpg)
 
-### When customer checks only "uppercase" checkbox
-![Screenshot of Webpage](./images/uppercase.JPG)
+### Front Page (Footer Section)
+![Screenshot of Webpage](./assets/images/front-page-2.jpg)
 
-### When customer checks only "number" checkbox
-![Screenshot of Webpage](./images/numbers.JPG)
+### Travel Advisory Section
+![Screenshot of Webpage](./assets/images/travel-advisory-section.jpg)
 
-### When customer checks only "symbols" checkbox
-![Screenshot of Webpage](./images/special-character.JPG)
+### Currency Converter Section
+![Screenshot of Webpage](./assets/images/currency-convert-sect.jpg)
 
-### When customer checks all checkboxes
-![Screenshot of Webpage](./images/mixed-number-character.JPG)
+### When user chooses a country,the country is appended for future reference unless cleared by the user.
+![Screenshot of Webpage](./assets/images/search-hist-buttons.jpg)
 
-### When no checkbox is checked by customer
-![Screenshot of Webpage](./images/nochecked-box.JPG)
+### Contact-us/About-us Modal
+![Screenshot of Webpage](./assets/images/contact-us-modal.jpg)
 
-### When customer inputs number less than 8 for password length
-![Screenshot of Webpage](./images/under-eight-input.JPG)
+## GIF
 
-### When customer inputs number greater than 128 for password length
-![Screenshot of Webpage](./assets/images/)
+### Webpage Demo
+![Screenshot of Webpage](./assets/images/Webpage-demo)
+
+### Webpage responsivness Demo
+![Screenshot of Webpage](./assets/images/webpage-responsive-demo)
+
+
 
 ## Mobile and tablet view images
 
 ### Mobile view
-![Screenshot of Webpage](./images/mobile-view.JPG)
+![Screenshot of Webpage](./assets/images/mobile-view.jpg)
 
 ### Tablet view
-![Screenshot of Webpage](./images/ipad-view.JPG)
+![Screenshot of Webpage](./assets/images/tablet-view.jpg)
+
+### API USED
+- [Currency Converter API](https://www.exchangerate-api.com/)
+
+- [Travel Advisory API](https://www.travel-advisory.info/api)
 
 ### Built With
 
@@ -75,11 +82,16 @@ This shows different functionalities in the webpage display after testing differ
 * Bootstrap
 * APIs
 
+## CONTRIBUTORS
+* TIM
+* ADIJAT
+* ZHENG
+* OLUSEYI
 
 <!-- LICENSE -->
 ## License
 
-created under the STOZ INC. License. See `LICENSE.txt` for more information.
+Created under the STOZ INC. License. See `LICENSE.txt` for more information.
 
 
 
