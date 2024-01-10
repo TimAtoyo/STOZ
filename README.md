@@ -25,7 +25,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-In this project we created a seamless traveller's companion application that a user can use to navigate the world confidently with real-time information from top travel advisory APIs, ensuring a user stay informed and updated about safety and risk levels of any proposed travel destination. This app runs in the browser, and features dynamically updated HTML and CSS powered by JavaScript code. It has a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes. The shades of Blue and white combination makes the UI more appealing to users.
+In this project we created a seamless traveller's companion application that a user can use to navigate the world confidently with real-time information. We used two server-side APIs, travel advisory API and an currency converter API. These features ensures a user stay informed and updated about safety and risk levels of any proposed travel destination. This app runs in the browser, and features dynamically updated HTML and CSS powered by JavaScript code. It has a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes. The shades of Blue and white combination makes the UI more appealing to users. It is easy to navigate to various sections with menu on both the header and the footer.
 
 
 
@@ -50,8 +50,13 @@ Below are the images of different sections and features of the webpage.
 ### Contact-us/About-us Modal
 ![Screenshot of Webpage](./assets/images/contact-us-modal.jpg)
 
+## GIF
+
 ### Webpage Demo
 ![Screenshot of Webpage](./assets/images/Webpage-demo)
+
+### Webpage responsivness Demo
+![Screenshot of Webpage](./assets/images/webpage-responsive-demo)
 
 
 
@@ -63,6 +68,11 @@ Below are the images of different sections and features of the webpage.
 ### Tablet view
 ![Screenshot of Webpage](./assets/images/tablet-view.jpg)
 
+### API USED
+- [Currency Converter API](https://www.exchangerate-api.com/)
+
+- [Travel Advisory API](https://www.travel-advisory.info/api)
+
 ### Built With
 
 
@@ -72,11 +82,16 @@ Below are the images of different sections and features of the webpage.
 * Bootstrap
 * APIs
 
+## CONTRIBUTORS
+* TIM
+* ADIJAT
+* ZHENG
+* OLUSEYI
 
 <!-- LICENSE -->
 ## License
 
-created under the STOZ INC. License. See `LICENSE.txt` for more information.
+Created under the STOZ INC. License. See `LICENSE.txt` for more information.
 
 
 
