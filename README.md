@@ -47,18 +47,21 @@ Below are the images of different sections and features of the webpage.
 ### When user chooses a country,the country is appended for future reference unless cleared by the user.
 ![Screenshot of Webpage](./assets/images/search-hist-buttons.jpg)
 
-### When customer checks all checkboxes
-![Screenshot of Webpage](./images/mixed-number-character.JPG)
+### Contact-us/About-us Modal
+![Screenshot of Webpage](./assets/images/contact-us-modal.jpg)
+
+### Webpage Demo
+![Screenshot of Webpage](./assets/images/Webpage-demo)
 
 
 
 ## Mobile and tablet view images
 
 ### Mobile view
-![Screenshot of Webpage](./images/mobile-view.JPG)
+![Screenshot of Webpage](./assets/images/mobile-view.jpg)
 
 ### Tablet view
-![Screenshot of Webpage](./images/ipad-view.JPG)
+![Screenshot of Webpage](./assets/images/tablet-view.jpg)
 
 ### Built With
 
